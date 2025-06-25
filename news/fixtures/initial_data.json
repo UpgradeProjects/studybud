@@ -1,0 +1,205 @@
+[
+    {
+        "model": "news.faculty",
+        "pk": 1,
+        "fields": {
+            "name": "АК"
+        }
+    },
+    {
+        "model": "news.faculty",
+        "pk": 2,
+        "fields": {
+            "name": "БМТ"
+        }
+    },
+    {
+        "model": "news.faculty",
+        "pk": 3,
+        "fields": {
+            "name": "ВИ"
+        }
+    },
+    {
+        "model": "news.faculty",
+        "pk": 4,
+        "fields": {
+            "name": "ГУИМЦ"
+        }
+    },
+    {
+        "model": "news.faculty",
+        "pk": 5,
+        "fields": {
+            "name": "ИБМ"
+        }
+    },
+    {
+        "model": "news.faculty",
+        "pk": 6,
+        "fields": {
+            "name": "ИСОТ"
+        }
+    },
+    {
+        "model": "news.faculty",
+        "pk": 7,
+        "fields": {
+            "name": "ИУ"
+        }
+    },
+    {
+        "model": "news.faculty",
+        "pk": 8,
+        "fields": {
+            "name": "Л"
+        }
+    },
+    {
+        "model": "news.faculty",
+        "pk": 9,
+        "fields": {
+            "name": "МТ"
+        }
+    },
+    {
+        "model": "news.faculty",
+        "pk": 10,
+        "fields": {
+            "name": "ОЭ"
+        }
+    },
+    {
+        "model": "news.faculty",
+        "pk": 11,
+        "fields": {
+            "name": "ПИШ"
+        }
+    },
+    {
+        "model": "news.faculty",
+        "pk": 12,
+        "fields": {
+            "name": "ПС"
+        }
+    },
+    {
+        "model": "news.faculty",
+        "pk": 13,
+        "fields": {
+            "name": "РК"
+        }
+    },
+    {
+        "model": "news.faculty",
+        "pk": 14,
+        "fields": {
+            "name": "РКТ"
+        }
+    },
+    {
+        "model": "news.faculty",
+        "pk": 15,
+        "fields": {
+            "name": "РЛ"
+        }
+    },
+    {
+        "model": "news.faculty",
+        "pk": 16,
+        "fields": {
+            "name": "РТ"
+        }
+    },
+    {
+        "model": "news.faculty",
+        "pk": 17,
+        "fields": {
+            "name": "СГН"
+        }
+    },
+    {
+        "model": "news.faculty",
+        "pk": 18,
+        "fields": {
+            "name": "СМ"
+        }
+    },
+    {
+        "model": "news.faculty",
+        "pk": 19,
+        "fields": {
+            "name": "Т"
+        }
+    },
+    {
+        "model": "news.faculty",
+        "pk": 20,
+        "fields": {
+            "name": "ФМОП"
+        }
+    },
+    {
+        "model": "news.faculty",
+        "pk": 21,
+        "fields": {
+            "name": "ФН"
+        }
+    },
+    {
+        "model": "news.faculty",
+        "pk": 22,
+        "fields": {
+            "name": "ФО"
+        }
+    },
+    {
+        "model": "news.faculty",
+        "pk": 23,
+        "fields": {
+            "name": "ЦДО"
+        }
+    },
+    {
+        "model": "news.faculty",
+        "pk": 24,
+        "fields": {
+            "name": "Э"
+        }
+    },
+    {
+        "model": "news.faculty",
+        "pk": 25,
+        "fields": {
+            "name": "ЮР"
+        }
+    },
+    {
+        "model": "news.newstheme",
+        "pk": 1,
+        "fields": {
+            "name": "Учеба"
+        }
+    },
+    {
+        "model": "news.newstheme",
+        "pk": 2,
+        "fields": {
+            "name": "Наука"
+        }
+    },
+    {
+        "model": "news.newstheme",
+        "pk": 3,
+        "fields": {
+            "name": "Спорт"
+        }
+    },
+    {
+        "model": "news.newstheme",
+        "pk": 4,
+        "fields": {
+            "name": "Мероприятия"
+        }
+    }
+]

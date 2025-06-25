@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'main/css/auth.css' %}">
+</head>
+<body>
+
+  <div class="wrapper">
+    <form method="POST">
+      <h2>Войти</h2>
+        <div class="input-field">
+        <input id="login" name="login" type="text" required>
+        <label for="login">Имя пользователя</label>
+      </div>
+      <div class="input-field">
+        <input id="password" name="password" type="password" required>
+        <label for="password">Пароль</label>
+      </div>
+
+      {% csrf_token %}
+
+      <div class="forget">
+        <label for="remember">
+          <input type="checkbox" id="remember">
+          <p>Запомнить меня</p>
+        </label>
+        <a href="#">Забыли пароль?</a>
+      </div>
+      <button type="submit">Войти</button>
+      <div class="register">
+        <p>У вас нет аккаунта? <a href="/auth/register">Зарегистрироваться</a></p>
+      </div>
+    </form>
+  </div>
+</body>
+</html>
