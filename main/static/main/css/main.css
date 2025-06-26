@@ -60,13 +60,13 @@ aside ul li:hover, aside ul a:hover {
     color: #fff;
     margin-top: 20px;
     text-align: center;
-    width: 75%;
+    width: 80%;
 }
 
 .form-control {
     margin-left: 21%;
     margin-top: 20px;
-    width: 600px;
+    width: 640px;
 }
 
 .alert {
@@ -97,34 +97,65 @@ aside ul li:hover, aside ul a:hover {
     color: #388e3c;
 }
 
-.date {
-    color: #757575;
+.news-info {
+    width: 20%;
 }
 
-.faculties-nav {
-    background: #f5f5f5;
-    padding: 15px;
-    margin-bottom: 20px;
+.badge {
+    padding: 3px 6px;
+    border-radius: 3px;
+    font-size: 0.8em;
+    margin-right: 5px;
 }
 
-.faculties-nav ul {
-    list-style: none;
-    padding: 0;
-    column-count: 3;
+.faculty {
+    background-color: #e3f2fd;
+    color: #1976d2;
 }
 
-.faculty-badge {
-    background: #2196F3;
-    color: white;
-    padding: 3px 8px;
-    border-radius: 4px;
-    font-weight: bold;
-    display: inline-block;
-    margin-bottom: 5px;
+.theme {
+    background-color: #e8f5e9;
+    color: #388e3c;
 }
 
+.news-info {
+    width: 20%;
+}
+
+.main-content {
+    margin-left: 20%;
+    padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+    
+.news-container {
+    max-width: 800px;
+    margin: 0 auto;
+    width: 100%;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+    
 .news-card {
-    border-left: 3px solid #2196F3;
-    padding: 10px 15px;
-    margin-bottom: 15px;
+    background-color: #1e1e1e;
+    border: 1px solid #444;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    color: white;
+}
+    
+.pagination-container {
+    margin-top: auto;
+    padding: 20px 0;
+    text-align: center;
+}
+    
+.step-links {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
 }

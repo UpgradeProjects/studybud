@@ -13,10 +13,8 @@
 <body>
     <aside>
         <img src="{% static 'main/img/image.png' %}" alt="#">
-        <span class="logo">Andrew</span>
-        <h3>Навигация</h3>
+        <span class="logo"><h3>{{user}}</h3></span>
         <ul>
-            <a href="{% url 'home' %}"><li><i class="fa-regular fa-bell"></i>Главная</li></a>
             <a href="{% url 'user_news' %}"><li><i class="fa-regular fa-bell"></i>Ваши новости</li></a>
             <a href="{% url 'news_home' %}"><li><i class="fa-regular fa-bell"></i>Новости</li></a>
             <a href="{% url 'about' %}"><li><i class="fa-regular fa-bell"></i>О нас</li></a>

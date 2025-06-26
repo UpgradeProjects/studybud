@@ -1,21 +1,44 @@
 {% extends 'main/layout.html' %}
 
-{% block title %}Новости на сайте{% endblock %}
+{% block title %}Новости{% endblock %}
 
 {% block content %}
-<div class="main">
-    <h1>Новости</h1>
-
-    {% if news %}
-        {% for el in news %}
-            <div class="alert alert-warning">
-                <h3>{{ el.title }}</h3>
-                <p>{{ el.anons }}</p>
-                <a href="{% url 'news-detail' el.id %}" class="btn btn-warning">Перейти</a>
+<div class="main-content">
+    <div class="news-container">
+        {% if news %}
+            {% for el in news %}
+            <div class="news-card">
+                <div class="card-body text-center">
+                    <h3 class="card-title">{{ el.title }}</h3>
+                    <div class="d-flex justify-content-center mt-3">
+                        <a href="{% url 'news-detail' el.id %}" class="btn btn-outline-light">Перейти</a>
+                    </div>
+                </div>
             </div>
-        {% endfor %}
-    {% else %}
-        <p>У вас нет записей</p>
-    {% endif %}
+            {% endfor %}
+            
+            <div class="pagination-container">
+                <span class="step-links">
+                    {% if news.has_previous %}
+                        <a href="?page=1" class="btn btn-outline-light">&laquo; первая</a>
+                        <a href="?page={{ news.previous_page_number }}" class="btn btn-outline-light">предыдущая</a>
+                    {% endif %}
+
+                    <span class="current text-white">
+                        Страница {{ news.number }} из {{ news.paginator.num_pages }}
+                    </span>
+
+                    {% if news.has_next %}
+                        <a href="?page={{ news.next_page_number }}" class="btn btn-outline-light">следующая</a>
+                        <a href="?page={{ news.paginator.num_pages }}" class="btn btn-outline-light">последняя &raquo;</a>
+                    {% endif %}
+                </span>
+            </div>
+        {% else %}
+            <div class="alert alert-dark text-center">
+                Нет доступных новостей
+            </div>
+        {% endif %}
+    </div>
 </div>
 {% endblock %}
