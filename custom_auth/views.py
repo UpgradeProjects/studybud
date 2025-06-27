@@ -3,14 +3,14 @@ from django.contrib.auth import authenticate, login as auth_login, logout as aut
 from django.contrib.auth import get_user_model
 from django.http import HttpResponseRedirect
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
 User = get_user_model()
 
-from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate, login as auth_login
-from django.contrib import messages
-
 def login(request):
+    if request.user.is_authenticated:
+        return redirect('news_home')
+        
     if request.method == 'POST':
         username = request.POST.get('login')
         password = request.POST.get('password')
@@ -19,7 +19,7 @@ def login(request):
 
         if user is not None:
             auth_login(request, user)
-            return redirect('home') 
+            return redirect('news_home') 
         else:
             messages.error(request, 'Неверные учетные данные')
             return render(request, 'custom_auth/login.html')
@@ -27,6 +27,9 @@ def login(request):
     return render(request, 'custom_auth/login.html')
 
 def reg(request):
+    if request.user.is_authenticated:
+        return redirect('news_home')
+        
     if request.method == 'POST':
         username = request.POST.get('login')
         password1 = request.POST.get('password')
@@ -39,13 +42,20 @@ def reg(request):
                     password=password1
                 )
                 auth_login(request, user)  
-                return redirect('home') 
+                return redirect('news_home')
             except Exception as e:
-                return render(request, 'custom_auth/reg.html', {'error': str(e)})
+                messages.error(request, f'Ошибка: {str(e)}')
+                return redirect('reg')
         else:
-            return render(request, 'custom_auth/reg.html', {'error': 'Пароли не совпадают'})
+            messages.error(request, 'Пароли не совпадают')
+            return redirect('reg')
     return render(request, 'custom_auth/reg.html')
 
 def logout(request):
     auth_logout(request)
-    return redirect('login')  
+    return redirect('news_home')
+
+
+@login_required
+def create(request):
+    pass

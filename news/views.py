@@ -11,7 +11,7 @@ from django.core.paginator import Paginator
 
 def news_home(request):
     news_list = Articles.objects.all().order_by('-date')
-    paginator = Paginator(news_list, 4)  # Ограничение 4 новости на страницу
+    paginator = Paginator(news_list, 4)  
     page_number = request.GET.get('page')
     news = paginator.get_page(page_number)
     return render(request, 'news/news_home.html', {'news': news})
@@ -45,10 +45,10 @@ def create(request):
             article = form.save(commit=False)
             article.author = request.user
             article.save()
-            return redirect('news_home')
+            print(f"New post created by: {request.user.username} (ID: {request.user.id})")
+            return redirect('user_news')
     else:
         form = ArticleForm()
-    
     return render(request, 'news/create.html', {'form': form})
 
 def news_list(request):
@@ -83,21 +83,20 @@ def home(request):
     
     return render(request, 'news/home.html', {'faculties': faculties})
 
-def faculty_topics(request, faculty_id):
-    faculty = get_object_or_404(Faculty, id=faculty_id)
-    topics = Topic.objects.all()
-    return render(request, 'news/faculty_topics.html', {
-        'faculty': faculty,
-        'topics': topics
+def user_news(request):
+    if not request.user.is_authenticated:
+        return redirect('login')
+    
+    user_posts = Articles.objects.filter(
+        author=request.user
+    ).select_related('faculty', 'theme').order_by('-date')
+    
+    paginator = Paginator(user_posts, 4)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    
+    return render(request, 'news/user_news.html', {
+        'page_obj': page_obj, 
+        'user': request.user
     })
 
-def topic_articles(request, faculty_id, topic_id):
-    faculty = get_object_or_404(Faculty, id=faculty_id)
-    topic = get_object_or_404(Topic, id=topic_id)
-    articles = Articles.objects.filter(faculty=faculty, topic=topic)
-    
-    return render(request, 'news/topic_articles.html', {
-        'faculty': faculty,
-        'topic': topic,
-        'articles': articles
-    })
